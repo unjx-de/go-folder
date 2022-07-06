@@ -1,6 +1,7 @@
 package folder
 
 import (
+	"github.com/stretchr/testify/assert"
 	"io/fs"
 	"os"
 	"testing"
@@ -12,48 +13,30 @@ var permission fs.FileMode = 0755
 
 func TestCreateAndRemoveValidFolders(t *testing.T) {
 	err := CreateFolders(validFolders, permission)
-	if err != nil {
-		t.Errorf("%v\n", err)
-	}
+	assert.Equal(t, nil, err, "expected no error")
 	err = RemoveFolders(validFolders)
-	if err != nil {
-		t.Errorf("%v\n", err)
-	}
+	assert.Equal(t, nil, err, "expected no error")
 }
 
 func TestCreateAlreadyExistingFolders(t *testing.T) {
 	err := CreateFolders(validFolders, permission)
-	if err != nil {
-		t.Errorf("%v\n", err)
-	}
+	assert.Equal(t, nil, err, "expected no error")
 	err = CreateFolders(validFolders, permission)
-	if err != nil {
-		t.Errorf("%v\n", err)
-	}
+	assert.Equal(t, nil, err, "expected no error")
 	err = RemoveFolders(validFolders)
-	if err != nil {
-		t.Errorf("%v\n", err)
-	}
+	assert.Equal(t, nil, err, "expected no error")
 }
 
 func TestCreateInvalidFolders(t *testing.T) {
 	_, err := os.Create(validFolders[0])
-	if err != nil {
-		t.Errorf("%v\n", err)
-	}
+	assert.Equal(t, nil, err, "expected no error")
 	err = CreateFolders(validFolders, permission)
-	if err == nil {
-		t.Errorf("expected Error\n")
-	}
+	assert.NotEqual(t, nil, err, "expected error")
 	err = os.Remove(validFolders[0])
-	if err != nil {
-		t.Errorf("%v\n", err)
-	}
+	assert.Equal(t, nil, err, "expected no error")
 }
 
 func TestRemoveInvalidFolders(t *testing.T) {
 	err := RemoveFolders(invalidFolders)
-	if err == nil {
-		t.Errorf("expected Error\n")
-	}
+	assert.NotEqual(t, nil, err, "expected error")
 }
