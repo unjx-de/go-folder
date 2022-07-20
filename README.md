@@ -2,6 +2,7 @@
 
 [![GoDoc](https://godoc.org/github.com/unjx-de/go-folder?status.svg)](https://godoc.org/github.com/unjx-de/go-folder)
 [![Go](https://github.com/unjx-de/go-folder/actions/workflows/go.yml/badge.svg)](https://github.com/unjx-de/go-folder/actions/workflows/go.yml)
+[![CodeQL](https://github.com/unjx-de/go-folder/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/unjx-de/go-folder/actions/workflows/codeql-analysis.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/unjx-de/go-folder)](https://goreportcard.com/report/github.com/unjx-de/go-folder)
 
 ## Usage
